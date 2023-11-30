@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Title}}: profile</title>
+    <link href="/assets/public/base.css" rel="stylesheet"/>
+    <script type="module" src="/assets/public/api.js"></script>
+  </head>
+  <body>
+    <div align="center">
+      <div class="inside t">
+        <h1>Profile</h1>
+        <br/>
+        Username: <a id="username">Placeholder</a> <span id="badges">Placeholder</span><br/><br/>
+        <div id="bio">Placeholder</div><br/>
+        You joined our platform <a id="joindate"></a>.
+      </div>
+    </div>
+    <script src="/assets/public/profile.js" type="module"></script>
+  </body>
+  <script type="module">
+    import * as profile from '/assets/public/profile.js';
+
+    profile.pageLoaded();
+  </script>
+</html>

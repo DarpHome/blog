@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Title}}: docs</title>
+    <link href="/assets/public/base.css" rel="stylesheet"/>
+    <link href="/assets/public/http.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="title">
+      <h1>
+        <div class="t">
+          Docs <a style="color:#696969">|</a>
+          <a href="/docs/auth" class="link">Auth</a>
+          <a>Users</a>
+        </div>
+      </h1>
+    </div>
+    <div class="inside t">
+      <div id="#types">
+        <div id="structure-user">
+          <h1>User structure <a href="#structure-user" class="ref">[Ref]</a></h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td><a href="/docs#snowflakes" class="link">snowflake</a></td>
+                <td>user id</td>
+              </tr>
+              <tr>
+                <td>avatar</td>
+                <td>?string</td>
+                <td>user avatar hash</td>
+              </tr>
+              <tr>
+                <td>bio</td>
+                <td>?string</td>
+                <td>user description</td>
+              </tr>
+              <tr>
+                <td>flags</td>
+                <td>integer</td>
+                <td>user flags represented as <a href="#bitset-user-flags" class="link">bitset</a></td>
+              </tr>
+              <tr>
+                <td>?username</td>
+                <td>string</td>
+                <td>username (present if user not deleted)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="bitset-user-flags">
+          <h1>User flags bitset <a href="#bitset-user-flags" class="ref">[Ref]</a></h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Value</th>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1 << 0 (0x00000001)</td>
+                <td>DELETED</td>
+                <td>User is deleted (present only if user not found in database)</td>
+              </tr>
+              <tr>
+                <td>1 << 1 (0x00000002)</td>
+                <td>STAFF</td>
+                <td>employee of platform</td>
+              </tr>
+              <tr>
+                <td>1 << 2 (0x00000004)</td>
+                <td>BOT</td>
+                <td>User is bot</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <h1><pre class="http-route"><a class="http-get" id="route-get-users-me">GET</a> /users/@me <a href="#route-get-users-me" class="ref">[Ref]</a></pre></h1>
+      Gets currently authorized user.
+      Example <a href="#structure-user" class="link">response</a>: <pre class="block">{
+  "id": "2421604235608064",
+  "avatar": null,
+  "bio": "i like Go",
+  "flags": 0,
+  "username": "nerdarp"
+}</pre>
+      <h1><pre class="http-route"><a class="http-get" id="route-get-users-user-id">GET</a> /users/{user.id} <a href="#route-get-users-user-id" class="ref">[Ref]</a></pre></h1>
+      Gets user by their id.<br/>
+      Example request: <pre class="block">GET /users/2421604235608064 HTTP/1.1
+Accept: application/json
+Authorization: MjQyMTYwNDIzNTYwODA2NA==.MWlsYzlkYg==.59f39dd606dd3715897ba7816df02933f96a9782bd1d701fd6ad1f7fa38df93a
+Host: example.com
+User-Agent: Mozilla... 
+</pre>
+      <a class="t">Example <a href="#structure-user" class="link">response</a></a>: <pre class="block">{
+  "id": "2421604235608064",
+  "avatar": null,
+  "bio": "i like Go",
+  "flags": 0,
+  "username": "nerdarp"
+}</pre>
+    </div>
+  </body>
+</html>

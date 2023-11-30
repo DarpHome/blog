@@ -1,0 +1,9 @@
+{
+  "secret_key": "extremelysecretkeyfortokens",
+  "app_name": "Nerdarp blog",
+  "pghost": "127.0.0.1",
+  "pgport": 5432,
+  "pguser": "blog",
+  "pgpassword": "blog",
+  "pgdbname": "blog"
+}

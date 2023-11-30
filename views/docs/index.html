@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Title}}: docs</title>
+    <link href="/assets/public/base.css" rel="stylesheet"/>
+    <style>
+      tbody.snowflakes {
+        height: calc(100% - 10px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h1>
+        <div class="t">
+          Docs <a style="color:#696969">|</a> 
+          <a href="/docs/auth" class="link">Auth</a>
+          <a href="/docs/users" class="link">Users</a>
+        </div>
+      </h1>
+    </div>
+    <div class="inside t">
+      <div id="types">
+        <div id="snowflakes">
+          <h1>Snowflakes <a href="#snowflakes" class="ref">[Ref]</a></h1>
+          We utilize Discord's <a href="https://discord.com/developers/docs/reference#snowflakes" class="link">snowflake</a> format for uniquely
+          identifiable descriptors (IDs). These IDs are guaranteed to be unique across all of platform, except in some unique scenarios in which
+          child objects share their parent's ID. Because Snowflake IDs are up to 64 bits in size (e.g. a uint64),
+          they are always returned as strings in the HTTP API to prevent integer overflows in some languages.<br/><br/>
+
+          <div id="snowflake-id-broken-down-in-binary">
+            <h2>Snowflake ID Broken Down in Binary <a href="#snowflake-id-broken-down-in-binary" class="ref">[Ref]</a></h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Bits</th>
+                  <th>Number of bits</th>
+                  <th>Description</th>
+                  <th>Retrieval</th>
+                </tr>
+              </thead>
+              <tbody class=".snowflakes">
+                <tr>
+                  <td>Timestamp</td>
+                  <td>63 to 22</td>
+                  <td>42 bits</td>
+                  <td>Milliseconds since platform Epoch, which is {{.SnowflakesEpoch}}.</td>
+                  <td><pre>(snowflake >> 22) + {{.SnowflakesEpoch}}</pre></td>
+                </tr>
+                <tr>
+                  <td>Internal worker ID</td>
+                  <td>21 to 17</td>
+                  <td>5 bits</td>
+                  <td></td>
+                  <td><pre>(snowflake & 0x3E0000) >> 17</pre></td>
+                </tr>
+                <tr>
+                  <td>Internal worker ID</td>
+                  <td>16 to 2</td>
+                  <td>4 bits</td>
+                  <td></td>
+                  <td><pre>(snowflake & 0x1F000) >> 12</pre></td>
+                </tr>
+                <tr>
+                  <td>Increment</td>
+                  <td>11 to 0 bits</td>
+                  <td>12 bits</td>
+                  <td>For every ID that is generated on that process, this number is incremented</td>
+                  <td><pre>snowflake & 0xFFF</pre></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

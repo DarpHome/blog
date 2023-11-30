@@ -1,0 +1,36 @@
+html {
+  background-color: #333333;
+}
+.title {
+  color: #e8ecf0;
+}
+.inside {
+  color: #e8ecf0;
+}
+pre {
+  background-color: #272727;
+}
+pre.block {
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.t {
+  font-family: 'Segoe UI';
+  color: #e0e0e0;
+}
+.link {
+  color: #4090e0;
+}
+.ref {
+  font-family: monospace;
+  color: #4090e0;
+}
+table, td {
+  border: 1px solid #727272;
+}
+thead, tfoot {
+  background-color: #727272;
+  color: #dddddd;
+}

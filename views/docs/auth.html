@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Title}}: docs</title>
+    <link href="/assets/public/base.css" rel="stylesheet"/>
+    <link href="/assets/public/http.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="title">
+      <h1>
+        <div class="t">
+          Docs <a style="color:#696969">|</a>
+          <a>Auth</a>
+          <a href="/docs/users" class="link">Users</a>
+        </div>
+      </h1>
+    </div>
+    <div class="inside t">
+      <h1><pre class="http-route"><a class="http-post" id="route-post-auth-register">POST</a> /auth/register <a href="#route-post-auth-register" class="ref">[Ref]</a></pre></h1>
+      Register a user. <br/>
+      Example payload: <pre class="block">{
+  "username": "nerdarp",
+  "password": "secretPassword!123"
+}</pre>
+      Example response: <pre class="block">{
+  "token":"MjQyMTYwNDIzNTYwODA2NA==.MWlsYzlkYg==.59f39dd606dd3715897ba7816df02933f96a9782bd1d701fd6ad1f7fa38df93a",
+  "user": {
+    "id": "2421604235608064",
+    "avatar": null,
+    "bio": null,
+    "flags": 0,
+    "username": "nerdarp"
+  }
+}</pre>
+      <h1><pre class="http-route"><a class="http-post" id="route-post-auth-login">POST</a> /auth/login <a href="#route-post-auth-login" class="ref">[Ref]</a></pre></h1>
+      Example payload: <pre class="block">{
+  "username": "nerdarp",
+  "password": "secretPassword!123"
+}</pre>
+      Example response: <pre class="block">{
+  "token": "MjQyMTYwNDIzNTYwODA2NA==.MWlsYzlkYg==.59f39dd606dd3715897ba7816df02933f96a9782bd1d701fd6ad1f7fa38df93a"
+}</pre>
+    </div>
+  </body>
+</html>

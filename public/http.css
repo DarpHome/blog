@@ -1,0 +1,10 @@
+.http-get {
+  color: #008000;
+}
+.http-post {
+  color:#1756dd;
+}
+.http-route {
+  padding-left: 6px;
+  padding-right: 6px;
+}

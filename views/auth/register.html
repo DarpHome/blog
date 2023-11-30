@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Title}}: register</title>
+    <link href="/assets/public/base.css" rel="stylesheet"/>
+    <script type="module" src="/assets/public/api.js"></script>
+  </head>
+  <body>
+    <div align="center">
+      <div class="inside t">
+        <h1>Register</h1>
+        <br/>
+        <a style="color: #dd1010" id="error-username"></a><br/>
+        Username: <input type="text" id="username" required></input><br/><br/>
+        <a style="color: #dd1010" id="error-password"></a><br/>
+        Password: <input type="password" id="password" required></input><br/><br/>
+        <a id="rest-response"></a><br/>
+        <button id="register">Register</button><br/>
+        <sub>Already have an account? <a href="/auth/login">Login</a>.</sub>
+      </div>
+    </div>
+    <script src="/assets/public/register.js" type="module"></script>
+  </body>
+</html>
