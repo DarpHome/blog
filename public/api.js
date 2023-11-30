@@ -72,7 +72,7 @@ export class Bitset {
   }
   set(flags, value) {
     if (value) this.value |= flags;
-    else this.value ^= flags;
+    else this.value &= ~flags;
   }
 }
 
